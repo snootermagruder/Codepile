@@ -1,8 +1,4 @@
-/*
- Example sketch for the Xbox 360 USB library - developed by Kristian Lauszus
- For more information visit my blog: http://blog.tkjelectronics.dk/ or
- send me an e-mail:  kristianl@tkjelectronics.com
- */
+
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 #include <XBOXUSB.h>
