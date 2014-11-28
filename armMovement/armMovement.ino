@@ -46,28 +46,30 @@ void loop() {
         Serial.print(F("LeftHatX: "));
         Serial.print(Xbox.getAnalogHat(LeftHatX));
         Serial.print("\t");
-        int val_0 = Xbox.getAnalogHat(LeftHatX);
+        /*int val_0 = Xbox.getAnalogHat(LeftHatX);
         val_0 = map(val_0, -33000, 33000, SERVOMIN_0, SERVOMAX_0);
-        pwm.setPWM(0,0,val_0);
+        pwm.setPWM(0,0,val_0);*/
       }
       if (Xbox.getAnalogHat(LeftHatY) > 7500 || Xbox.getAnalogHat(LeftHatY) < -7500) {
         Serial.print(F("LeftHatY: "));
         Serial.print(Xbox.getAnalogHat(LeftHatY));
         Serial.print("\t");
-        int val_1 = Xbox.getAnalogHat(LeftHatY);
+       /* int val_1 = Xbox.getAnalogHat(LeftHatY);
         val_1 = map(val_1, -33000, 33000, SERVOMIN_1, SERVOMAX_1);
-        pwm.setPWM(1,0,val_1);
+        pwm.setPWM(1,0,val_1);*/
       }
       if (Xbox.getAnalogHat(RightHatX) > 7500 || Xbox.getAnalogHat(RightHatX) < -7500) {
         Serial.print(F("RightHatX: "));
         Serial.print(Xbox.getAnalogHat(RightHatX));
         Serial.print("\t");
 
-        /*    int pos_0 = val_0;
-         if (pos_0 < 0){
-         pos_0 =pos_0 - 1; 
-         pos_0 > SERVOMIN_0;
-         pwm.setPWM(0,0,pos_0);
+        int val_0 = Xbox.getAnalogHat(RightHatX);
+        val_0 = map(val_0, -33000, 33000, SERVOMIN_0, SERVOMAX_0);
+        static int pos_0 = val_0;
+        if (pos_0 < 0){
+          pos_0 =pos_0 - 1; 
+          pos_0 > SERVOMIN_0;
+          pwm.setPWM(0,0,pos_0);
          }
          if (Xbox.getAnalogHat(RightHatX) > 0){
          pos_0 = pos_0 + 1; 
@@ -77,16 +79,19 @@ void loop() {
          if (Xbox.getAnalogHat(RightHatX) == 0){
          pos_0 = pos_0;
          pwm.setPWM(0,0,pos_0);
-         }*/
+         }
       }
       if (Xbox.getAnalogHat(RightHatY) > 7500 || Xbox.getAnalogHat(RightHatY) < -7500) {
         Serial.print(F("RightHatY: "));
         Serial.print(Xbox.getAnalogHat(RightHatY));
-        /*  int pos_1= 350;
-         if (Xbox.getAnalogHat(RightHatY) < 0){
-         pos_1 = pos_1 - 1 ; 
-         pos_1 > SERVOMIN_1;
-         pwm.setPWM(1,0,pos_1);
+        
+        int val_1 = Xbox.getAnalogHat(RightHatX);
+        val_1 = map(val_1, -33000, 33000, SERVOMIN_0, SERVOMAX_0);
+        static int pos_1 = val_1;
+        if (pos_1 < 0){
+          pos_1 = pos_1 - 1; 
+          pos_1 > SERVOMIN_0;
+          pwm.setPWM(0,0,pos_0);
          }
          if (Xbox.getAnalogHat(RightHatY) > 0){
          pos_1 = pos_1 + 1 ; 
